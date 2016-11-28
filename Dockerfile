@@ -31,7 +31,7 @@ WORKDIR /opt
 
 # Fetch Android SDK and Gradle
 ## Enable on DockerHub:
-RUN wget --output-document=android-sdk.tgz --quiet http://dl.google.com/android/android-sdk_r24.4.1-linux.tgz && wget --output-document=gradle-${GRADLE_VER}-bin.zip --quiet https://services.gradle.org/distributions/gradle-${GRADLE_VER}-bin.zip
+RUN wget --output-document=android-sdk_r24.4.1-linux.tgz --quiet http://dl.google.com/android/android-sdk_r24.4.1-linux.tgz && wget --output-document=gradle-${GRADLE_VER}-bin.zip --quiet https://services.gradle.org/distributions/gradle-${GRADLE_VER}-bin.zip
   
 ## Enable on local:
 #COPY android-sdk_r24.4.1-linux.tgz gradle-${GRADLE_VER}-bin.zip ./
