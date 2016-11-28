@@ -22,7 +22,7 @@ RUN apt-get update && apt-get install -y \
     libstdc++6:i386 \
     lib32z1 \
     libbz2-1.0:i386 \
-    openjdk-8-jre-headless \
+    openjdk-8-jdk \
     unzip \
     wget \
  && rm -rf /var/lib/apt/lists/*
