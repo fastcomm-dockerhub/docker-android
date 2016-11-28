@@ -52,13 +52,6 @@ RUN tar -xzf android-sdk_r24.4.1-linux.tgz && \
         echo y | $ANDROID_HOME/tools/android update sdk -a -u -f -t $p; \
     done
 
-
-## Use this for DockerHub
-#RUN wget -qO- "https://services.gradle.org/distributions/gradle-${GRADLE_VER}-bin.zip" | unzip gradle-${GRADLE_VER}-bin.zip
-
-## Use this for local
-#COPY gradle-${GRADLE_VER}-bin.zip .
-
 # Install Gradle to /opt/gradle-${GRADLE_VER}
 RUN unzip gradle-${GRADLE_VER}-bin.zip && rm gradle-${GRADLE_VER}-bin.zip
 
