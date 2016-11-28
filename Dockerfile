@@ -11,7 +11,7 @@ ENV GRADLE_VER=2.14.1
 # Environment variables 
 ENV ANDROID_HOME=/opt/android-sdk-linux \
     PATH=$PATH:/opt/gradle-${GRADLE_VER}/bin \
-    JAVA_HOME=/usr/lib/jvm/java-9-openjdk-amd64
+    JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 
 # Install packages
 ## 32 bit libs are for Android tools like aapt which are only available as 32b
