@@ -6,7 +6,8 @@ FROM ubuntu:16.04
 MAINTAINER Wimpie Nortje
 
 # Build settings
-ENV GRADLE_VER=2.14.1
+ENV GRADLE_VER=2.14.1 \
+    SDK_VER=25.0.3
 
 # Environment variables 
 ENV ANDROID_HOME=/opt/android-sdk-linux \
@@ -31,20 +32,27 @@ WORKDIR /opt
 
 # Fetch Android SDK and Gradle
 ## Enable on DockerHub:
-RUN wget --output-document=android-sdk_r24.4.1-linux.tgz --quiet http://dl.google.com/android/android-sdk_r24.4.1-linux.tgz && wget --output-document=gradle-${GRADLE_VER}-bin.zip --quiet https://services.gradle.org/distributions/gradle-${GRADLE_VER}-bin.zip
+RUN wget --output-document=tools_r${SDK_VER}-linux.zip \
+          --quiet https://dl.google.com/android/repository/tools_r${SDK_VER}-linux.zip && \
+     wget --output-document=gradle-${GRADLE_VER}-bin.zip \
+          --quiet https://services.gradle.org/distributions/gradle-${GRADLE_VER}-bin.zip
   
 ## Enable on local:
-#COPY android-sdk_r24.4.1-linux.tgz gradle-${GRADLE_VER}-bin.zip ./
+#COPY tools_r${SDK_VER}-linux.zip gradle-${GRADLE_VER}-bin.zip ./
 
 # Install Android SDK to /opt/android-sdk-linux
-RUN tar -xzf android-sdk_r24.4.1-linux.tgz && \
-    rm android-sdk_r24.4.1-linux.tgz && \
+RUN mkdir $ANDROID_HOME && \
+    unzip tools_r${SDK_VER}-linux.zip -d $ANDROID_HOME && \
+    rm tools_r${SDK_VER}-linux.zip && \
     pkgs="android-14 \
           android-18 \
           android-20 \
           android-23 \
+          android-25 \
           build-tools-23.0.2 \
           build-tools-24.0.2 \
+          build-tools-25.0.2 \
+          platform-tools \
           extra-android-m2repository \
           extra-google-m2repository \
           "; \
