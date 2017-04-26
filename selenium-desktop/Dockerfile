@@ -19,7 +19,8 @@ RUN apt-get update && apt-get install -y \
     xvfb \
     wget \
     git \
-    less
+    less \
+    uuid-runtime
 
 # Install Chrome
 RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - && \
