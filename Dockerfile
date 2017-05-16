@@ -52,7 +52,7 @@ RUN mkdir $ANDROID_HOME && \
           android-25 \
           build-tools-23.0.2 \
           build-tools-24.0.2 \
-          build-tools-25.0.2 \
+          build-tools-25.0.3 \
           platform-tools \
           extra-android-m2repository \
           extra-google-m2repository \
