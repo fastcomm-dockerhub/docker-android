@@ -7,7 +7,7 @@ MAINTAINER Wimpie Nortje
 
 # Build settings
 ENV GRADLE_VER=3.3 \
-    SDK_VER=25.0.3
+    SDK_VER=26.0.0
 
 # Environment variables 
 ENV ANDROID_HOME=/opt/android-sdk-linux \
