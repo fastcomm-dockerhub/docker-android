@@ -7,7 +7,7 @@ MAINTAINER Wimpie Nortje
 
 # Build settings
 ENV GRADLE_VER=3.3 \
-    SDK_VER=26.0.0
+    SDK_VER=3859397
 
 # Environment variables 
 ENV ANDROID_HOME=/opt/android-sdk-linux \
@@ -30,21 +30,21 @@ RUN apt-get update && apt-get install -y \
  && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /opt
-
+https://dl.google.com/android/repository/sdk-tools-linux-3859397.zip
 # Fetch Android SDK and Gradle
 ## Enable on DockerHub:
-RUN wget --output-document=tools_r${SDK_VER}-linux.zip \
-          --quiet https://dl.google.com/android/repository/tools_r${SDK_VER}-linux.zip && \
+RUN wget --output-document= sdk-tools-linux-{SDK_VER}.zip \
+          --quiet https://dl.google.com/android/repository/sdk-tools-linux-{SDK_VER}.zip && \
      wget --output-document=gradle-${GRADLE_VER}-bin.zip \
           --quiet https://services.gradle.org/distributions/gradle-${GRADLE_VER}-bin.zip
   
 ## Enable on local:
-#COPY tools_r${SDK_VER}-linux.zip gradle-${GRADLE_VER}-bin.zip ./
+#COPY sdk-tools-linux-{SDK_VER}.zip gradle-${GRADLE_VER}-bin.zip ./
 
 # Install Android SDK to /opt/android-sdk-linux
 RUN mkdir $ANDROID_HOME && \
-    unzip tools_r${SDK_VER}-linux.zip -d $ANDROID_HOME && \
-    rm tools_r${SDK_VER}-linux.zip && \
+    unzip sdk-tools-linux-{SDK_VER}.zip -d $ANDROID_HOME && \
+    rm sdk-tools-linux-{SDK_VER}.zip && \
     pkgs="android-14 \
           android-18 \
           android-20 \
