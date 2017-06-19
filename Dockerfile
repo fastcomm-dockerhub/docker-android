@@ -45,20 +45,18 @@ RUN wget --output-document=sdk-tools-linux-${SDK_VER}.zip \
 RUN mkdir $ANDROID_HOME && \
     unzip sdk-tools-linux-${SDK_VER}.zip -d $ANDROID_HOME && \
     rm sdk-tools-linux-${SDK_VER}.zip && \
-    pkgs="android-14 \
-          android-18 \
-          android-20 \
-          android-23 \
-          android-25 \
-          build-tools-23.0.2 \
-          build-tools-24.0.2 \
-          build-tools-25.0.3 \
+    pkgs="platforms;android-14 \
+          platforms;android-18 \
+          platforms;android-20 \
+          platforms;android-23 \
+          platforms;android-25 \
+          build-tools;26.0.0 \
           platform-tools \
-          extra-android-m2repository \
-          extra-google-m2repository \
+          extras;android;m2repository \
+          extras;android;m2repository \
           "; \
     for p in $pkgs; do \
-        echo y | $ANDROID_HOME/tools/bin/sdkmanager --package_file="$p"; \
+        echo y | $ANDROID_HOME/tools/bin/sdkmanager --package_file=$p; \
     done
 
 # Install Gradle to /opt/gradle-${GRADLE_VER}
