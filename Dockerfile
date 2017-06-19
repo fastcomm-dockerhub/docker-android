@@ -58,7 +58,7 @@ RUN mkdir $ANDROID_HOME && \
           extra-google-m2repository \
           "; \
     for p in $pkgs; do \
-        echo y | $ANDROID_HOME/tools/sdkmanager --package_file=$p --verbose; \
+        echo y | $ANDROID_HOME/tools/sdkmanager --package_file=$p; \
     done
 
 # Install Gradle to /opt/gradle-${GRADLE_VER}
