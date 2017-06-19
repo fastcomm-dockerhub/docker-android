@@ -33,18 +33,18 @@ WORKDIR /opt
 https://dl.google.com/android/repository/sdk-tools-linux-3859397.zip
 # Fetch Android SDK and Gradle
 ## Enable on DockerHub:
-RUN wget --output-document=sdk-tools-linux-{SDK_VER}.zip \
-          --quiet https://dl.google.com/android/repository/sdk-tools-linux-{SDK_VER}.zip && \
+RUN wget --output-document=sdk-tools-linux-${SDK_VER}.zip \
+          --quiet https://dl.google.com/android/repository/sdk-tools-linux-${SDK_VER}.zip && \
      wget --output-document=gradle-${GRADLE_VER}-bin.zip \
           --quiet https://services.gradle.org/distributions/gradle-${GRADLE_VER}-bin.zip
   
 ## Enable on local:
-#COPY sdk-tools-linux-{SDK_VER}.zip gradle-${GRADLE_VER}-bin.zip ./
+#COPY sdk-tools-linux-${SDK_VER}.zip gradle-${GRADLE_VER}-bin.zip ./
 
 # Install Android SDK to /opt/android-sdk-linux
 RUN mkdir $ANDROID_HOME && \
-    unzip sdk-tools-linux-{SDK_VER}.zip -d $ANDROID_HOME && \
-    rm sdk-tools-linux-{SDK_VER}.zip && \
+    unzip sdk-tools-linux-${SDK_VER}.zip -d $ANDROID_HOME && \
+    rm sdk-tools-linux-${SDK_VER}.zip && \
     pkgs="android-14 \
           android-18 \
           android-20 \
