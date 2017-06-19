@@ -30,7 +30,7 @@ RUN apt-get update && apt-get install -y \
  && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /opt
-https://dl.google.com/android/repository/sdk-tools-linux-3859397.zip
+
 # Fetch Android SDK and Gradle
 ## Enable on DockerHub:
 RUN wget --output-document=sdk-tools-linux-${SDK_VER}.zip \
