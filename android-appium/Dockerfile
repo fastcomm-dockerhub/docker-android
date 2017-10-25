@@ -16,32 +16,27 @@ ENV ANDROID_HOME=/opt/android-sdk-linux \
 
 # Install APT packages
 ## 32 bit libs are for Android tools like aapt which are only available as 32b
-RUN dpkg --add-architecture i386 
-RUN apt-get update && apt-get install -y \
-    libc6:i386 \ 
-    openjdk-8-jdk \
-    npm \
-    nodejs-legacy \
-    build-essential \
-    ruby-dev \
-    rubygems \
-    xvfb \
-    git \
-    unzip \
-    wget \
-    less \
+RUN dpkg --add-architecture i386 \
+ && apt-get update && apt-get install -y \
+      libc6:i386 \   
+      openjdk-8-jdk \
+      npm \
+      nodejs-legacy \
+      build-essential \
+      ruby-dev \
+      rubygems \
+      xvfb \
+      git \
+      unzip \
+      wget \
+      less \
+      nano \
+      netcat \
  && rm -rf /var/lib/apt/lists/*
 
-
-
-
-#     libncurses5:i386 \ --
-#     libstdc++6:i386 \  --
-#     lib32z1 \          --
-#     libbz2-1.0:i386 \  --
-
 # Install npm modules
-RUN npm install -g appium
+RUN npm install -g n appium \
+ && n lts
 
 # Install ruby gems
 RUN gem install --no-document \
@@ -81,14 +76,15 @@ RUN mkdir $ANDROID_HOME && \
           platform-tools \
           extras;android;m2repository \
           extras;google;m2repository \
-          system-images;android-17;google_apis;armeabi-v7a \
-          emulator \
           "; \
     for p in $pkgs; do \
         echo y | $ANDROID_HOME/tools/bin/sdkmanager "$p"; \
     done
 
-#extras;google;webdriver??
+#           system-images;android-17;google_apis;armeabi-v7a \
+# system-images;android-23;google_apis;x86
+#           emulator \
+
 
 # Install Gradle to /opt/gradle-${GRADLE_VER}
 RUN unzip gradle-${GRADLE_VER}-bin.zip && rm gradle-${GRADLE_VER}-bin.zip
