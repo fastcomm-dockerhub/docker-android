@@ -6,7 +6,7 @@ FROM ubuntu:16.04
 MAINTAINER Wimpie Nortje
 
 # Build settings
-ENV GRADLE_VER=3.3 \
+ENV GRADLE_VER=4.1 \
     SDK_VER=3859397
 
 # Environment variables 
@@ -50,7 +50,7 @@ RUN mkdir $ANDROID_HOME && \
           platforms;android-20 \
           platforms;android-23 \
           platforms;android-25 \
-          build-tools;26.0.0 \
+          build-tools;27.0.0 \
           platform-tools \
           extras;android;m2repository \
           extras;google;m2repository \
