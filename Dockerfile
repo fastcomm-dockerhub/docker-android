@@ -50,7 +50,7 @@ RUN mkdir $ANDROID_HOME && \
           platforms;android-20 \
           platforms;android-23 \
           platforms;android-25 \
-          build-tools;27.0.0 \
+          build-tools;27.0.3 \
           platform-tools \
           extras;android;m2repository \
           extras;google;m2repository \
