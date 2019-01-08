@@ -52,6 +52,7 @@ RUN mkdir $ANDROID_HOME && \
           platforms;android-25 \
           build-tools;27.0.3 \
           platform-tools \
+          ndk-bundle \
           extras;android;m2repository \
           extras;google;m2repository \
           "; \
