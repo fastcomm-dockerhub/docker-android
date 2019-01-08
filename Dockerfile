@@ -45,16 +45,20 @@ RUN wget --output-document=sdk-tools-linux-${SDK_VER}.zip \
 RUN mkdir $ANDROID_HOME && \
     unzip sdk-tools-linux-${SDK_VER}.zip -d $ANDROID_HOME && \
     rm sdk-tools-linux-${SDK_VER}.zip && \
-    pkgs="platforms;android-14 \
+    pkgs="build-tools;27.0.3 \
+          build-tools;28.0.3 \
+          extras;android;m2repository \
+          extras;google;m2repository \
+          ndk-bundle \
+          patcher;v4 \
+          platform-tools \
+          platforms;android-14 \
           platforms;android-18 \
           platforms;android-20 \
           platforms;android-23 \
           platforms;android-25 \
-          build-tools;27.0.3 \
-          platform-tools \
-          ndk-bundle \
-          extras;android;m2repository \
-          extras;google;m2repository \
+          platforms;android-28 \
+          tools \
           "; \
     for p in $pkgs; do \
         echo y | $ANDROID_HOME/tools/bin/sdkmanager "$p"; \
