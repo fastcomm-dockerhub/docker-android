@@ -25,6 +25,7 @@ RUN apt-get update && apt-get install -y \
     libbz2-1.0:i386 \
     git \
     openjdk-8-jdk \
+    file \
     unzip \
     wget \
  && rm -rf /var/lib/apt/lists/*
