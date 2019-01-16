@@ -28,6 +28,7 @@ RUN apt-get update && apt-get install -y \
     file \
     unzip \
     wget \
+    curl \
  && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /opt
