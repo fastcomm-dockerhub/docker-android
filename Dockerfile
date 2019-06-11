@@ -6,8 +6,8 @@ FROM ubuntu:16.04
 MAINTAINER Wimpie Nortje
 
 # Build settings
-ENV GRADLE_VER=4.10.1 \
-    SDK_VER=3859397
+ENV GRADLE_VER=5.1.1 \
+    SDK_VER=4333796
 
 # Environment variables 
 ENV ANDROID_HOME=/opt/android-sdk-linux \
