@@ -6,7 +6,7 @@ FROM ubuntu:16.04
 MAINTAINER Wimpie Nortje
 
 # Build settings
-ENV GRADLE_VER=5.1.1 \
+ENV GRADLE_VER=5.4.1 \
     SDK_VER=4333796
 
 # Environment variables 
